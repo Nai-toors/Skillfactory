@@ -58,13 +58,29 @@ const obj = {
   tom: 'there'
 };
 
-const arrValues = [];
+const arrValues = Object.values(obj);
+const fullArr = [];
 
-for (var key in obj)  { 
-  arrValues.push(obj[key]);
+for (let i = 0; i < arrValues.length; i++) {
+  if (Array.isArray(arrValues[i]) === true) {
+    for (let j = 0; j < arrValues[i].length; j++) {
+      fullArr.push(arrValues[i][j]);
+    }
+  } else {
+    fullArr.push(arrValues[i])
+  }
 }
 
-displayData(arrValues, "output4");
+console.log(fullArr)
 
-var arrValues1 = [].concat(obj.some, obj.dom, obj.arr, obj.tom);
-console.log(arrValues1);
+
+
+
+// for (var key in obj)  { 
+//   arrValues.push(obj[key]);
+// }
+
+// displayData(arrValues, "output4");
+
+// var arrValues1 = [].concat(obj.some, obj.dom, obj.arr, obj.tom);
+// console.log(arrValues1);
